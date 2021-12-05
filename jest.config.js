@@ -13,6 +13,7 @@ module.exports = {
     '@styles/(.*)$': '<rootDir>/src/styles/$1',
     '@ui/(.*)$': '<rootDir>/src/ui/$1',
     '@pages/(.*)$': '<rootDir>/src/pages/$1',
+    '@services/(.*)$': '<rootDir>/src/services/$1',
   },
   globals: {
     'ts-jest': {
