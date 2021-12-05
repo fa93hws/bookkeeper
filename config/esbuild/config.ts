@@ -2,13 +2,6 @@ import * as path from 'path';
 import type { Options } from 'esbuild-dev-tool';
 import { htmlPluginFactory } from 'esbuild-dev-tool';
 
-function getBaseUrl(): string {
-  if (process.env.BASE_URL == null) {
-    return '';
-  }
-  return process.env.BASE_URL;
-}
-
 export function getEsbuildConfig(mode: 'development' | 'production'): Options {
   if (mode !== 'development' && mode !== 'production') {
     throw new Error('mode can only be development or production');
@@ -29,7 +22,6 @@ export function getEsbuildConfig(mode: 'development' | 'production'): Options {
       outdir: path.join(outputDir),
       define: {
         'process.env.NODE_ENV': `"${mode}"`,
-        'process.env.BASE_URL': `"${getBaseUrl()}"`,
       },
       minify: mode === 'production',
       loader: {
